@@ -15,6 +15,7 @@ class Game extends Model
      * @var array<string, string>
      */
     protected $casts = [
-        'genres' => 'array',
+        'genres' => 'collection',
+        'released_at' => 'date',
     ];
 }
