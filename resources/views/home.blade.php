@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="grid grid-cols-6 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         @foreach ($games as $game)
             <div class="rounded-lg bg-white shadow-lg hover:{{ $loop->even ? '-' : '' }}rotate-2 duration-200">
                 <a href="/jeu/{{ $game->id }}-{{ $game->slug }}">

@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 </head>
 <body class="font-[Inter] bg-gray-200">
-    <div class="max-w-6xl mx-auto px-3">
+    <div class="max-w-6xl mx-auto px-3 py-8">
         @yield('content')
     </div>
 </body>
