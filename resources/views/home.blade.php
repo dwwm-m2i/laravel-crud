@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-        @foreach ($games as $game)
+        {{-- le forelse pour gérer le message si le tableau est vide --}}
+        @forelse ($games as $game)
             <div class="rounded-lg bg-white shadow-lg hover:{{ $loop->even ? '-' : '' }}rotate-2 duration-200">
                 <a href="/jeu/{{ $game->id }}-{{ $game->slug }}">
                     <img class="w-full rounded-t-lg" src="{{ $game->image }}" alt="{{ $game->name }}">
@@ -15,6 +16,10 @@
                     </div>
                 </div>
             </div>
-        @endforeach
+        @empty
+            <div class="col-span-6">
+                <h2 class="text-center text-2xl">Il n'y a pas de ressources</h2>
+            </div>
+        @endforelse
     </div>
 @endsection
