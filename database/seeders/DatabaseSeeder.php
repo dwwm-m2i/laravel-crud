@@ -30,7 +30,8 @@ class DatabaseSeeder extends Seeder
         Game::factory()->create([
             'name' => 'World of Warcraft: Dragonflight',
             'slug' => Str::of('World of Warcraft: Dragonflight')->slug(),
-            'content' => 'The dragonflights of Azeroth have returned, called upon to defend their ancestral home, the Dragon Isles. Surging with elemental magic and the life energies of Azeroth, the Isles are awakening once more, and it\'s up to you to explore their primordial wonder and discover long-forgotten secrets. Master the art of Dragonriding, with a new form of aerial movement, venture into the ancient prison of the Primal Incarnates before their malevolent power can be unleashed against the Dragon Aspects in the new raid. Fight to reclaim Neltharus, stronghold of the black dragonflight, explore previously unknown chambers of Uldaman, defend the Life Pools of the red dragonflight, and more! In new dungeons!',
+            // ** est <strong> en markdown et on peut voir que ça marche sur la page du jeu
+            'content' => 'The dragonflights of **Azeroth** have returned, called upon to defend their ancestral home, the Dragon Isles. Surging with elemental magic and the life energies of Azeroth, the Isles are awakening once more, and it\'s up to you to explore their primordial wonder and discover long-forgotten secrets. Master the art of Dragonriding, with a new form of aerial movement, venture into the ancient prison of the Primal Incarnates before their malevolent power can be unleashed against the Dragon Aspects in the new raid. Fight to reclaim Neltharus, stronghold of the black dragonflight, explore previously unknown chambers of Uldaman, defend the Life Pools of the red dragonflight, and more! In new dungeons!',
             'image' => 'https://images.igdb.com/igdb/image/upload/t_cover_big/co67z6.png',
             'state' => true,
             'company' => 'Blizzard Entertainment',

@@ -17,8 +17,8 @@
             </p>
             <p class="mb-9 italic">{{ $game->company }}</p>
             <p class="mb-3"><strong>Genre</strong>: {{ $game->genres->implode(', ') }}</p>
-            <div>
-                {{ $game->content }}
+            <div class="prose">
+                {!! Str::markdown($game->content) !!}
             </div>
         </div>
     </div>
