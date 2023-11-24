@@ -9,7 +9,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('home', [
-            'games' => Game::all(),
+            'games' => Game::latest('released_at')->where('active', true)->limit(4)->get(),
         ]);
     }
 }

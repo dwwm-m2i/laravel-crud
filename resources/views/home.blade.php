@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="text-center mb-12">
+        <a href="/jeu/nouveau" class="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-lg hover:bg-gray-600 hover:scale-105 duration-200">Ajouter un jeu</a>
+    </div>
+
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {{-- le forelse pour gérer le message si le tableau est vide --}}
         @forelse ($games as $game)

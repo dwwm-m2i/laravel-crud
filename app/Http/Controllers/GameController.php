@@ -6,6 +6,13 @@ use App\Models\Game;
 
 class GameController extends Controller
 {
+    public function index()
+    {
+        return view('home', [
+            'games' => Game::where('active', true)->get(),
+        ]);
+    }
+
     public function show($id, $slug)
     {
         // SELECT * FROM games WHERE id = :id AND slug = :slug
