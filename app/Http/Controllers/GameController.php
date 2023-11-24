@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Game;
+use App\Models\Platform;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -29,6 +30,7 @@ class GameController extends Controller
     {
         return view('games/create', [
             'genres' => ['Aventure', 'Beat \'em up', 'FPS', 'MMO', 'RPG'],
+            'platforms' => Platform::all(),
         ]);
     }
 
@@ -43,6 +45,8 @@ class GameController extends Controller
             'genres' => 'required|array',
             'genres.*' => 'required|in:'.implode(',', ['Aventure', 'Beat \'em up', 'FPS', 'MMO', 'RPG']),
             'released_at' => 'required|date',
+            'platforms' => 'required|array',
+            'platforms.*' => 'required|exists:platforms,id',
         ]);
 
         $game = new Game();
@@ -55,6 +59,7 @@ class GameController extends Controller
         $game->genres = $request->genres;
         $game->released_at = $request->released_at;
         $game->save();
+        $game->platforms()->sync($request->platforms);
 
         return redirect('/jeux')->with('message', 'Le jeu a été ajouté.');
     }
@@ -66,6 +71,7 @@ class GameController extends Controller
         return view('games/edit', [
             'game' => $game,
             'genres' => ['Aventure', 'Beat \'em up', 'FPS', 'MMO', 'RPG'],
+            'platforms' => Platform::all(),
         ]);
     }
 
@@ -74,7 +80,7 @@ class GameController extends Controller
         $game = Game::findOrFail($id);
 
         $request->validate([
-            'name' => 'required|unique:games',
+            'name' => 'required|unique:games,name,'.$game->id,
             'content' => 'required|between:50,10000',
             'image' => 'required|url',
             'active' => 'boolean',
@@ -82,6 +88,8 @@ class GameController extends Controller
             'genres' => 'required|array',
             'genres.*' => 'required|in:'.implode(',', ['Aventure', 'Beat \'em up', 'FPS', 'MMO', 'RPG']),
             'released_at' => 'required|date',
+            'platforms' => 'required|array',
+            'platforms.*' => 'required|exists:platforms,id',
         ]);
 
         $game->name = $request->name;
@@ -93,6 +101,7 @@ class GameController extends Controller
         $game->genres = $request->genres;
         $game->released_at = $request->released_at;
         $game->save();
+        $game->platforms()->sync($request->platforms);
 
         return redirect('/jeux')->with('message', 'Le jeu a été modifié.');
     }

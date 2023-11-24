@@ -45,6 +45,17 @@
         </div>
 
         <div class="mb-3">
+            <label class="block mb-1">Plateformes</label>
+
+            @foreach ($platforms as $platform)
+                <div class="flex items-center gap-2">
+                    <input type="checkbox" name="platforms[]" id="platform-{{ $platform->id }}" value="{{ $platform->id }}" @checked(in_array($platform->id, old('platforms', [])))>
+                    <label for="platform-{{ $platform->id }}">{{ $platform->name }}</label>
+                </div>
+            @endforeach
+        </div>
+
+        <div class="mb-3">
             <label for="released_at" class="block mb-1">Date de sortie</label>
             <input type="date" name="released_at" id="released_at" value="{{ old('released_at') }}" class="rounded-lg">
         </div>

@@ -24,6 +24,7 @@
                         <p class="text-xs text-gray-600 truncate" title="{{ $game->genres->implode(', ') }}">{{ $game->genres->implode(', ') }}</p>
                         <p class="text-xs text-gray-800">{{ $game->released_at->format('Y') }}</p>
                     </div>
+                    <p class="text-xs text-gray-600 truncate" title="{{ $game->platforms->pluck('name')->implode(', ') }}">{{ $game->platforms->pluck('name')->implode(', ') }}</p>
                 </div>
                 <div class="flex justify-evenly mb-3">
                     @if ($game->active)
