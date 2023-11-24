@@ -21,7 +21,7 @@ class GameFactory extends Factory
             'slug' => fake()->slug(),
             'content' => fake()->text(),
             'image' => fake()->imageUrl(),
-            'state' => fake()->boolean(),
+            'active' => fake()->boolean(),
             'company' => fake()->company(),
             'genres' => fake()->randomElements(['Aventure', 'Action', 'MMO', 'RPG'], null),
             'released_at' => fake()->dateTimeBetween('-30 years', '+10 years'),

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('content');
             $table->string('image');
-            $table->boolean('state');
+            $table->boolean('active');
             $table->string('company');
             $table->text('genres');
             $table->timestamp('released_at');
