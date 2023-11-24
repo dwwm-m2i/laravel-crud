@@ -18,4 +18,9 @@ class Game extends Model
         'genres' => 'collection',
         'released_at' => 'date',
     ];
+
+    public function platforms()
+    {
+        return $this->belongsToMany(Platform::class);
+    }
 }
