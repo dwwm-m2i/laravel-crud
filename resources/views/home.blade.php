@@ -5,10 +5,16 @@
         <a href="/jeu/nouveau" class="inline-block bg-gray-800 text-gray-300 px-4 py-2 rounded-lg hover:bg-gray-600 hover:scale-105 duration-200">Ajouter un jeu</a>
     </div>
 
+    @if (session('message'))
+        <p class="rounded shadow text-green-800 bg-green-300 text-center p-2 mb-9">
+            {{ session('message') }}
+        </p>
+    @endif
+
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {{-- le forelse pour gérer le message si le tableau est vide --}}
         @forelse ($games as $game)
-            <div class="rounded-lg bg-white shadow-lg hover:{{ $loop->even ? '-' : '' }}rotate-2 duration-200">
+            <div class="rounded-lg bg-white shadow-lg hover:{{ $loop->even ? '-' : '' }}rotate-2 duration-200 {{ ! $game->active ? 'opacity-50' : '' }}">
                 <a href="/jeu/{{ $game->id }}-{{ $game->slug }}">
                     <img class="w-full rounded-t-lg" src="{{ $game->image }}" alt="{{ $game->name }}">
                 </a>

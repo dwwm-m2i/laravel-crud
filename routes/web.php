@@ -19,3 +19,5 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/jeux', [GameController::class, 'index']);
 Route::get('/jeu/{id}-{slug}', [GameController::class, 'show']);
+Route::get('/jeu/nouveau', [GameController::class, 'create']);
+Route::post('/jeu/nouveau', [GameController::class, 'store']);
