@@ -21,3 +21,8 @@ Route::get('/jeux', [GameController::class, 'index']);
 Route::get('/jeu/{id}-{slug}', [GameController::class, 'show']);
 Route::get('/jeu/nouveau', [GameController::class, 'create']);
 Route::post('/jeu/nouveau', [GameController::class, 'store']);
+Route::get('/jeu/{id}/modifier', [GameController::class, 'edit']);
+Route::post('/jeu/{id}/modifier', [GameController::class, 'update']);
+Route::get('/jeu/{id}/supprimer', [GameController::class, 'destroy']);
+
+Route::get('/jeu/{id}/changer', [GameController::class, 'enable']);
